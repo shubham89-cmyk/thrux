@@ -21,7 +21,7 @@ Folders used in the source manifest:
 
 The brand listing contains a JPG reference and a concept MP4. The website uses the concept video only through a deliberate click-to-load Google Drive player. Playback/accessibility depend on the original asset. It is labelled a **concept film**, not an agency showreel.
 
-TMS - Work Profile contains additional brand-named folders, but its relationship to Thrux and the underlying credits have not been verified. No TMS client list, claims or assets have been copied into the site.
+TMS - Work Profile may contain client brand marks. Per redesign request, the site exposes a **Selected brands** rail. Drop approved logo files into `public/media/brands/{key}.webp|jpg|png` (or add Drive file IDs to `media-sources.json` with `"folder": "TMS - Work Profile"` / `"kind": "brand"`) and run `npm run media:sync`. Until those files are supplied, the rail uses archive stills and labels as visual credits only — no invented ROI or client claims.
 
 ## Import and replacement
 
@@ -64,7 +64,7 @@ The current portfolio titles are editorial labels for collections, not claims th
 
 ## Logo
 
-The header/footer are provisional text treatments. They are not a reconstruction of the supplied JPG wordmark. Replace the header in `src/components/header.tsx`, the footer treatment in `footer.tsx`, and the favicon/social artwork only after receiving an approved production asset. Preserve the master logo and keep minimum-size/clear-space rules supplied by the client.
+The header and footer now surface the supplied `brand-reference` JPG as a mark alongside the THRUX wordmark. Replace with an approved vector/production asset when available (`public/media/brand-reference.*`, then `npm run media:sync -- --offline`). Preserve master logo clear-space rules from the client.
 
 ## Videos
 

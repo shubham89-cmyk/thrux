@@ -12,7 +12,9 @@ const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const sources = JSON.parse(await readFile(join(root, "src/content/media-sources.json"), "utf8"));
 const manifestPath = join(root, "src/content/media.generated.json");
 const destination = join(root, "public/media");
+const brandsDestination = join(destination, "brands");
 await mkdir(destination, { recursive: true });
+await mkdir(brandsDestination, { recursive: true });
 let previous = {};
 try { previous = JSON.parse(await readFile(manifestPath, "utf8")); } catch { /* first import */ }
 const manifest = {};
@@ -45,17 +47,21 @@ async function fetchImage(url) {
 }
 async function importOne(source) {
   const current = previous[source.key];
+  const brand = source.folder === "TMS - Work Profile" || source.kind === "brand" || String(source.key).startsWith("brand-");
+  const folder = brand ? brandsDestination : destination;
+  const publicPrefix = brand ? "/media/brands" : "/media";
   // Existing local media is preferred. Drop a JPG/PNG/WebP here to replace any poster.
   let local = null;
   for (const extension of [".webp", ".jpg", ".png"]) {
-    if (await exists(join(destination, source.key + extension))) { local = `/media/${source.key}${extension}`; break; }
+    if (await exists(join(folder, source.key + extension))) { local = `${publicPrefix}/${source.key}${extension}`; break; }
+    if (brand && await exists(join(destination, source.key + extension))) { local = `/media/${source.key}${extension}`; break; }
   }
   if (local && (!refresh || offline)) {
     manifest[source.key] = { src: local, sourceId: source.id, importedAt: current?.importedAt || "manual" };
     return;
   }
-  if (!offline) {
-    const candidates = source.kind === "image" ? [
+  if (!offline && source.id) {
+    const candidates = source.kind === "image" || source.kind === "brand" ? [
       `https://drive.google.com/uc?export=download&id=${source.id}`,
       `https://drive.google.com/thumbnail?id=${source.id}&sz=w1600`,
     ] : [
@@ -66,8 +72,8 @@ async function importOne(source) {
       try {
         const { buffer, extension } = await fetchImage(url);
         const name = source.key + extension;
-        await writeFile(join(destination, name), buffer);
-        manifest[source.key] = { src: `/media/${name}`, sourceId: source.id, importedAt: new Date().toISOString() };
+        await writeFile(join(folder, name), buffer);
+        manifest[source.key] = { src: `${publicPrefix}/${name}`, sourceId: source.id, importedAt: new Date().toISOString() };
         console.log(`Imported ${source.key} (${Math.round(buffer.length / 1024)} KB)`);
         return;
       } catch { /* try the second public endpoint; never ask for a password */ }

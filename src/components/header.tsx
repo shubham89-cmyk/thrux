@@ -1,9 +1,13 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Arrow, Close } from "./icons";
 import { navigation } from "@/lib/site";
+import generated from "@/content/media.generated.json";
+
+const brandSrc = (generated as Record<string, { src: string }> )["brand-reference"]?.src;
 
 export function Header() {
   const pathname = usePathname();
@@ -30,11 +34,18 @@ export function Header() {
   }, []);
   return <>
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
-      <Link href="/" className="wordmark" aria-label="Thrux home">THRUX<span className="brand-dot" /><span className="wordmark-caption">MEDIA STUDIOS</span></Link>
+      <Link href="/" className="wordmark" aria-label="Thrux home">
+        <span className="wordmark-mark">
+          {brandSrc
+            ? <Image src={brandSrc} alt="" fill sizes="42px" priority />
+            : <span className="brand-dot" style={{ position: "absolute", inset: 0, margin: "auto" }} />}
+        </span>
+        <span className="wordmark-text">THRUX<span className="wordmark-caption">MEDIA STUDIOS</span></span>
+      </Link>
       <nav className="desktop-nav" aria-label="Main navigation">
         {navigation.map(item => <Link key={item.href} href={item.href} aria-current={pathname.startsWith(item.href) ? "page" : undefined}>{item.label}</Link>)}
       </nav>
-      <Link className="button button-small header-cta" href="/contact">Let&apos;s talk <Arrow /></Link>
+      <Link className="button button-small header-cta magnetic-link" href="/contact">Let&apos;s talk <Arrow /></Link>
       <button ref={trigger} className="menu-toggle" aria-label="Open navigation" aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(true)}><span /><span /></button>
     </header>
     <dialog ref={dialog} className="mobile-dialog" id="mobile-navigation" aria-label="Navigation" onCancel={() => setOpen(false)} onClose={() => { setOpen(false); trigger.current?.focus(); }} onClick={event => { if (event.target === event.currentTarget) setOpen(false); }}>

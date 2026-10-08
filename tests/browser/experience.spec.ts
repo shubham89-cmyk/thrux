@@ -6,8 +6,8 @@ test("the hero renders live motion and readable creative disciplines", async ({ 
   page.on("pageerror", error => errors.push(error.message));
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Brands thatbreakthrough.");
-  await expect(page.getByRole("heading", { name: "Brand identity", exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: "Explore our work" })).toBeVisible();
+  await expect(page.getByLabel("Selected brands")).toBeVisible();
   await page.waitForFunction(() => document.querySelector("canvas")?.getContext("2d")?.getImageData(0, 0, innerWidth, innerHeight).data.some((v, i) => i % 4 === 3 && v > 0));
   const before = await page.locator("canvas").evaluate((el: HTMLCanvasElement) => el.toDataURL());
   await page.waitForTimeout(350);

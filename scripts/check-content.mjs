@@ -1,6 +1,7 @@
 import { readFile, access } from "node:fs/promises";
 import { resolve } from "node:path";
-const root = resolve(import.meta.dirname, "..");
+import { fileURLToPath } from "node:url";
+const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const sources = JSON.parse(await readFile(`${root}/src/content/media-sources.json`, "utf8"));
 const generated = JSON.parse(await readFile(`${root}/src/content/media.generated.json`, "utf8"));
 let missing = 0;
