@@ -1,0 +1,242 @@
+[
+  {
+    "route": "/",
+    "width": 1440,
+    "content": 1440,
+    "height": 1000
+  },
+  {
+    "route": "/work",
+    "width": 1440,
+    "content": 1440,
+    "height": 1000
+  },
+  {
+    "route": "/expertise",
+    "width": 1440,
+    "content": 1440,
+    "height": 1000
+  },
+  {
+    "route": "/studio",
+    "width": 1440,
+    "content": 1440,
+    "height": 1000
+  },
+  {
+    "route": "/contact",
+    "width": 1440,
+    "content": 1440,
+    "height": 1000
+  },
+  {
+    "route": "/privacy",
+    "width": 1440,
+    "content": 1440,
+    "height": 1000
+  },
+  {
+    "route": "/work/fashion-in-motion",
+    "width": 1440,
+    "content": 1440,
+    "height": 1000
+  },
+  {
+    "route": "/work/commercial-stories",
+    "width": 1440,
+    "content": 1440,
+    "height": 1000
+  },
+  {
+    "route": "/work/a-taste-of-place",
+    "width": 1440,
+    "content": 1440,
+    "height": 1000
+  },
+  {
+    "route": "/work/inside-the-frame",
+    "width": 1440,
+    "content": 1440,
+    "height": 1000
+  },
+  {
+    "route": "/",
+    "width": 320,
+    "content": 320,
+    "height": 844
+  },
+  {
+    "route": "/work",
+    "width": 320,
+    "content": 320,
+    "height": 844
+  },
+  {
+    "route": "/expertise",
+    "width": 320,
+    "content": 320,
+    "height": 844
+  },
+  {
+    "route": "/studio",
+    "width": 320,
+    "content": 320,
+    "height": 844
+  },
+  {
+    "route": "/contact",
+    "width": 320,
+    "content": 320,
+    "height": 844
+  },
+  {
+    "route": "/privacy",
+    "width": 320,
+    "content": 320,
+    "height": 844
+  },
+  {
+    "route": "/work/fashion-in-motion",
+    "width": 320,
+    "content": 320,
+    "height": 844
+  },
+  {
+    "route": "/work/commercial-stories",
+    "width": 320,
+    "content": 320,
+    "height": 844
+  },
+  {
+    "route": "/work/a-taste-of-place",
+    "width": 320,
+    "content": 320,
+    "height": 844
+  },
+  {
+    "route": "/work/inside-the-frame",
+    "width": 320,
+    "content": 320,
+    "height": 844
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "content": 390,
+    "height": 844
+  },
+  {
+    "route": "/work",
+    "width": 390,
+    "content": 390,
+    "height": 844
+  },
+  {
+    "route": "/expertise",
+    "width": 390,
+    "content": 390,
+    "height": 844
+  },
+  {
+    "route": "/studio",
+    "width": 390,
+    "content": 390,
+    "height": 844
+  },
+  {
+    "route": "/contact",
+    "width": 390,
+    "content": 390,
+    "height": 844
+  },
+  {
+    "route": "/privacy",
+    "width": 390,
+    "content": 390,
+    "height": 844
+  },
+  {
+    "route": "/work/fashion-in-motion",
+    "width": 390,
+    "content": 390,
+    "height": 844
+  },
+  {
+    "route": "/work/commercial-stories",
+    "width": 390,
+    "content": 390,
+    "height": 844
+  },
+  {
+    "route": "/work/a-taste-of-place",
+    "width": 390,
+    "content": 390,
+    "height": 844
+  },
+  {
+    "route": "/work/inside-the-frame",
+    "width": 390,
+    "content": 390,
+    "height": 844
+  },
+  {
+    "route": "/",
+    "width": 768,
+    "content": 768,
+    "height": 1000
+  },
+  {
+    "route": "/work",
+    "width": 768,
+    "content": 768,
+    "height": 1000
+  },
+  {
+    "route": "/expertise",
+    "width": 768,
+    "content": 768,
+    "height": 1000
+  },
+  {
+    "route": "/studio",
+    "width": 768,
+    "content": 768,
+    "height": 1000
+  },
+  {
+    "route": "/contact",
+    "width": 768,
+    "content": 768,
+    "height": 1000
+  },
+  {
+    "route": "/privacy",
+    "width": 768,
+    "content": 768,
+    "height": 1000
+  },
+  {
+    "route": "/work/fashion-in-motion",
+    "width": 768,
+    "content": 768,
+    "height": 1000
+  },
+  {
+    "route": "/work/commercial-stories",
+    "width": 768,
+    "content": 768,
+    "height": 1000
+  },
+  {
+    "route": "/work/a-taste-of-place",
+    "width": 768,
+    "content": 768,
+    "height": 1000
+  },
+  {
+    "route": "/work/inside-the-frame",
+    "width": 768,
+    "content": 768,
+    "height": 1000
+  }
+]

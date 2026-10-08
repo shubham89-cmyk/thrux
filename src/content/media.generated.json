@@ -1,0 +1,42 @@
+{
+  "brand-reference": {
+    "src": "/media/brand-reference.jpg",
+    "sourceId": "1s7l407KBqNHhmUPpSJAe36aX4VAkC6eo",
+    "importedAt": "2026-10-07T09:55:59.830Z"
+  },
+  "bts-01": {
+    "src": "/media/bts-01.jpg",
+    "sourceId": "1S-hzsciuV9bCKK5ffAoe9xhycg910Vqa",
+    "importedAt": "2026-10-07T09:55:44.654Z"
+  },
+  "bts-02": {
+    "src": "/media/bts-02.jpg",
+    "sourceId": "1jIVGtcpVm3Cc8AvhU7i8AnrNLLty-HQ6",
+    "importedAt": "2026-10-07T09:55:44.283Z"
+  },
+  "commercial-01": {
+    "src": "/media/commercial-01.jpg",
+    "sourceId": "1pBiCMe7pFoylqY2AGn9T1HdV5J5jQ9Rl",
+    "importedAt": "2026-10-07T09:55:27.891Z"
+  },
+  "commercial-02": {
+    "src": "/media/commercial-02.jpg",
+    "sourceId": "1msQ-HoSV6ALdBSyKW86kwGpKHtxoUYkY",
+    "importedAt": "2026-10-07T09:55:28.046Z"
+  },
+  "hospitality-01": {
+    "src": "/media/hospitality-01.jpg",
+    "sourceId": "1xM_D-TDuLQPRIkJUSzIwdxJVpw2ne6Me",
+    "importedAt": "2026-10-07T09:55:28.374Z"
+  },
+  "hospitality-02": {
+    "src": "/media/hospitality-02.jpg",
+    "sourceId": "1w-qrGd9RxlG1nbXiyiF9fiTftxqVnnU6",
+    "importedAt": "2026-10-07T09:55:44.362Z"
+  },
+  "studio-ident": {
+    "src": "/media/studio-ident.jpg",
+    "sourceId": "1OHz3GKJpu4sRtlZhiJRoR7agtKplCE-j",
+    "importedAt": "2026-10-07T09:55:59.734Z"
+  }
+}

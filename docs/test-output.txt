@@ -1,0 +1,12 @@
+THRUX v2 validation — 2026-10-07
+
+npm run test: 24 tests passed, 0 failed.
+npm run typecheck: passed using installed dependencies.
+npm run build: passed using Next.js 16.3.0 and Node.js 24.
+
+Chromium interaction checks: 7 passed.
+Responsive checks: 4 passed (10 routes at 320, 390, 768, 1440px).
+Total browser checks: 11 passed across the interaction and layout runs.
+Horizontal overflow: none in 40 checked combinations.
+
+See QUALITY_REPORT.md and layout-checks.json for exact scope and remaining checks.

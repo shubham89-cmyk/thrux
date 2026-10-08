@@ -1,0 +1,13 @@
+[
+  { "key": "fashion-01", "id": "1NFZZEIr7tdMed1feugORmWuArbrKI4gl", "folder": "Fashion Campaign", "kind": "poster", "approval": "pending", "note": "First item in the supplied Fashion Campaign folder. Exact campaign title and credits not verified." },
+  { "key": "fashion-02", "id": "1wn_l7PRY-_kDqchcNpJ5-e0evYRSY1nW", "folder": "Fashion Campaign", "kind": "poster", "approval": "pending", "note": "Second supplied Fashion Campaign item; website uses an editorial collection title." },
+  { "key": "fashion-03", "id": "1AP7tTvH71lnQdzmQI_J6I8r9CSmiTGtI", "folder": "Fashion Campaign", "kind": "poster", "approval": "pending", "note": "Third supplied Fashion Campaign item." },
+  { "key": "commercial-01", "id": "1pBiCMe7pFoylqY2AGn9T1HdV5J5jQ9Rl", "folder": "ADDS", "kind": "poster", "approval": "pending", "note": "First supplied ADDS item. Client identity, role and credits require sign-off." },
+  { "key": "commercial-02", "id": "1msQ-HoSV6ALdBSyKW86kwGpKHtxoUYkY", "folder": "ADDS", "kind": "poster", "approval": "pending", "note": "Second supplied ADDS item." },
+  { "key": "hospitality-01", "id": "1xM_D-TDuLQPRIkJUSzIwdxJVpw2ne6Me", "folder": "cafe", "kind": "poster", "approval": "pending", "note": "Listed filename: 002 Sansai .mp4. No campaign performance or production credits verified." },
+  { "key": "hospitality-02", "id": "1w-qrGd9RxlG1nbXiyiF9fiTftxqVnnU6", "folder": "cafe", "kind": "poster", "approval": "pending", "note": "Listed filename: 002 Sansai.mp4." },
+  { "key": "bts-01", "id": "1S-hzsciuV9bCKK5ffAoe9xhycg910Vqa", "folder": "BTS", "kind": "poster", "approval": "pending", "note": "Listed filename: 01 BTS.mp4. Verify talent releases before public launch." },
+  { "key": "bts-02", "id": "1jIVGtcpVm3Cc8AvhU7i8AnrNLLty-HQ6", "folder": "BTS", "kind": "poster", "approval": "pending", "note": "Listed filename: 02 BTS.mp4." },
+  { "key": "brand-reference", "id": "1s7l407KBqNHhmUPpSJAe36aX4VAkC6eo", "folder": "Thrux - Logo and Concept", "kind": "image", "approval": "pending", "note": "IMG_20241203_115825_807.jpg. Reference only; do not treat as an approved vector master." },
+  { "key": "studio-ident", "id": "1OHz3GKJpu4sRtlZhiJRoR7agtKplCE-j", "folder": "Thrux - Logo and Concept", "kind": "poster", "approval": "pending", "note": "gemini_generated_video_669b2f90.mp4. Concept identity film; not a verified showreel." }
+]

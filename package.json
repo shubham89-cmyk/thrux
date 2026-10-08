@@ -1,0 +1,35 @@
+{
+  "name": "thrux",
+  "version": "2.0.0",
+  "private": true,
+  "description": "THRUX Media Studios \u2014 an atmospheric, interactive branding and creative studio website.",
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "node scripts/sync-media.mjs --offline",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/*.test.mjs",
+    "media:sync": "node scripts/sync-media.mjs --refresh",
+    "media:check": "node scripts/check-content.mjs",
+    "check": "npm run test && npm run typecheck && npm run media:check",
+    "test:browser": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource-variable/manrope": "^5.3.0",
+    "@fontsource/instrument-serif": "^5.3.0",
+    "next": "16.3.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "typescript": "~5.8.3"
+  }
+}
