@@ -8,7 +8,11 @@ test("the hero renders live motion and readable creative disciplines", async ({ 
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Brands thatbreakthrough.");
   await expect(page.getByRole("link", { name: "Explore our work" })).toBeVisible();
   await expect(page.getByLabel("Selected brands")).toBeVisible();
-  await page.waitForFunction(() => document.querySelector("canvas.starfield")?.getContext("2d")?.getImageData(0, 0, innerWidth, innerHeight).data.some((v, i) => i % 4 === 3 && v > 0));
+  await page.waitForFunction(() => {
+    const canvas = document.querySelector("canvas.starfield") as HTMLCanvasElement | null;
+    const data = canvas?.getContext("2d")?.getImageData(0, 0, innerWidth, innerHeight).data;
+    return Boolean(data?.some((v: number, i: number) => i % 4 === 3 && v > 0));
+  });
   const starfield = page.locator("canvas.starfield");
   const before = await starfield.evaluate((el: HTMLCanvasElement) => el.toDataURL());
   await page.waitForTimeout(350);
@@ -55,7 +59,11 @@ test("reduced motion stops decorative animation and keeps work usable", async ({
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  await page.waitForFunction(() => document.querySelector("canvas.starfield")?.getContext("2d")?.getImageData(0, 0, innerWidth, innerHeight).data.some((v, i) => i % 4 === 3 && v > 0));
+  await page.waitForFunction(() => {
+    const canvas = document.querySelector("canvas.starfield") as HTMLCanvasElement | null;
+    const data = canvas?.getContext("2d")?.getImageData(0, 0, innerWidth, innerHeight).data;
+    return Boolean(data?.some((v: number, i: number) => i % 4 === 3 && v > 0));
+  });
   const starfield = page.locator("canvas.starfield");
   const before = await starfield.evaluate((el: HTMLCanvasElement) => el.toDataURL());
   await page.waitForTimeout(300);
