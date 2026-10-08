@@ -13,6 +13,9 @@ import { process } from "@/content/services";
 export default function Home() {
   return <>
     <Hero />
+    <section className="immersion-strip" aria-hidden="true">
+      <span>WEBGL</span><span>GSAP SCROLL</span><span>MAGNETIC UI</span><span>CINEMATIC TYPE</span><span>THRUX STUDIO</span>
+    </section>
     <BrandRail />
     <div className="discipline-marquee" aria-label="Branding, campaigns, culture, digital, impact">
       <div className="marquee-track">{[0, 1].map(i => <span key={i} aria-hidden={i === 1 ? "true" : undefined}>BRANDING <Spark /> CAMPAIGNS <Spark /> CULTURE <Spark /> DIGITAL <Spark /> IMPACT <Spark /> </span>)}</div>

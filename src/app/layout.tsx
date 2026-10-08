@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Experience } from "@/components/experience";
+import { ScrollCinema } from "@/components/motion/scroll-cinema";
+import { PageTransition } from "@/components/motion/page-transition";
 import { site, siteUrl } from "@/lib/site";
 import "@fontsource-variable/manrope";
 import "@fontsource/instrument-serif/400-italic.css";
@@ -17,7 +19,19 @@ export const metadata: Metadata = {
   robots: { index: site.ready, follow: site.ready },
   icons: { icon: "/icon.svg" },
 };
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#07070b" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#050505" };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body><Experience /><a href="#main-content" className="skip-link">Skip to content</a><Header /><main id="main-content">{children}</main><Footer /></body></html>;
+  return (
+    <html lang="en">
+      <body>
+        <Experience />
+        <PageTransition />
+        <ScrollCinema />
+        <a href="#main-content" className="skip-link">Skip to content</a>
+        <Header />
+        <main id="main-content">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
 }

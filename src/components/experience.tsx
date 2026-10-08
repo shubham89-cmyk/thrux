@@ -73,18 +73,22 @@ export function Experience() {
       if (!last || now - last >= 1000 / 30) { render(last ? Math.min((now - last) / 1000, .08) : 0); last = now; }
       frame = requestAnimationFrame(tick);
     };
+    let cx = -100, cy = -100;
     const pointer = (event: PointerEvent) => {
       if (motion.matches || !fine.matches || event.pointerType !== "mouse") return;
       tx = (event.clientX / width - .5) * 2; ty = (event.clientY / height - .5) * 2;
+      cx += (event.clientX - cx) * .28;
+      cy += (event.clientY - cy) * .28;
       const halo = cursor.current;
       if (!halo) return;
-      halo.style.setProperty("--cursor-x", `${event.clientX}px`);
-      halo.style.setProperty("--cursor-y", `${event.clientY}px`);
+      halo.style.setProperty("--cursor-x", `${cx}px`);
+      halo.style.setProperty("--cursor-y", `${cy}px`);
       halo.classList.add("is-visible");
       const target = event.target as Element | null;
-      const interactive = Boolean(target?.closest("a,button,summary,input,textarea,select,.magnetic-link"));
+      const interactive = Boolean(target?.closest("a,button,summary,input,textarea,select,.magnetic-link,.magnetic-wrap"));
       const onCard = Boolean(target?.closest(".noir-card,.project-card"));
-      halo.classList.toggle("is-interactive", interactive && !onCard);
+      const onWebgl = Boolean(target?.closest(".webgl-stage,.hero-media-webgl"));
+      halo.classList.toggle("is-interactive", (interactive || onWebgl) && !onCard);
       halo.classList.toggle("is-card", onCard);
     };
     const leave = () => {

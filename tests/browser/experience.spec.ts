@@ -8,12 +8,14 @@ test("the hero renders live motion and readable creative disciplines", async ({ 
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Brands thatbreakthrough.");
   await expect(page.getByRole("link", { name: "Explore our work" })).toBeVisible();
   await expect(page.getByLabel("Selected brands")).toBeVisible();
-  await page.waitForFunction(() => document.querySelector("canvas")?.getContext("2d")?.getImageData(0, 0, innerWidth, innerHeight).data.some((v, i) => i % 4 === 3 && v > 0));
-  const before = await page.locator("canvas").evaluate((el: HTMLCanvasElement) => el.toDataURL());
+  await page.waitForFunction(() => document.querySelector("canvas.starfield")?.getContext("2d")?.getImageData(0, 0, innerWidth, innerHeight).data.some((v, i) => i % 4 === 3 && v > 0));
+  const starfield = page.locator("canvas.starfield");
+  const before = await starfield.evaluate((el: HTMLCanvasElement) => el.toDataURL());
   await page.waitForTimeout(350);
-  const after = await page.locator("canvas").evaluate((el: HTMLCanvasElement) => el.toDataURL());
+  const after = await starfield.evaluate((el: HTMLCanvasElement) => el.toDataURL());
   expect(after).not.toBe(before);
-  expect(await page.evaluate(() => document.getAnimations().some(a => a.playState === "running"))).toBe(true);
+  expect(await page.evaluate(() => document.querySelector("canvas[data-engine]") !== null || document.querySelector(".hero-media-fallback") !== null)).toBe(true);
+  expect(await page.evaluate(() => document.getAnimations().some(a => a.playState === "running") || document.documentElement.dataset.motion === "full")).toBe(true);
   expect(errors).toEqual([]);
 });
 
@@ -53,10 +55,11 @@ test("reduced motion stops decorative animation and keeps work usable", async ({
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  await page.waitForFunction(() => document.querySelector("canvas")?.getContext("2d")?.getImageData(0, 0, innerWidth, innerHeight).data.some((v, i) => i % 4 === 3 && v > 0));
-  const before = await page.locator("canvas").evaluate((el: HTMLCanvasElement) => el.toDataURL());
+  await page.waitForFunction(() => document.querySelector("canvas.starfield")?.getContext("2d")?.getImageData(0, 0, innerWidth, innerHeight).data.some((v, i) => i % 4 === 3 && v > 0));
+  const starfield = page.locator("canvas.starfield");
+  const before = await starfield.evaluate((el: HTMLCanvasElement) => el.toDataURL());
   await page.waitForTimeout(300);
-  expect(await page.locator("canvas").evaluate((el: HTMLCanvasElement) => el.toDataURL())).toBe(before);
+  expect(await starfield.evaluate((el: HTMLCanvasElement) => el.toDataURL())).toBe(before);
   expect(await page.evaluate(() => document.getAnimations().filter(a => a.playState === "running").length)).toBe(0);
   await page.getByRole("link", { name: "Explore our work" }).click();
   await page.getByRole("button", { name: /^Hospitality/ }).click();

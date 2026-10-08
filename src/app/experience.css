@@ -108,20 +108,44 @@ button, input, textarea, select { font-family: var(--body); }
   font-family: monospace; font-size: 9px; letter-spacing: .06em; color: #c8c8c2;
 }
 
-/* Full-bleed cinematic hero */
+/* Full-bleed cinematic hero + WebGL stage */
 .signal-hero {
-  position: relative; min-height: min(100vh, 920px); padding: 0; overflow: hidden;
+  position: relative; min-height: min(100vh, 960px); padding: 0; overflow: hidden;
   display: flex; flex-direction: column; justify-content: flex-end;
 }
-.signal-hero .hero-media {
+.signal-hero .hero-media,
+.signal-hero .hero-media-webgl,
+.signal-hero .hero-media-fallback {
   position: absolute; inset: 0; z-index: 0;
 }
 .signal-hero .hero-media .campaign-media { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; }
+.webgl-stage { position: absolute; inset: 0; width: 100%; height: 100%; }
+.webgl-stage canvas { display: block; width: 100% !important; height: 100% !important; }
+.webgl-vignette {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse at 60% 45%, transparent 10%, #05050588 70%, #050505ee 100%),
+    linear-gradient(90deg, #050505aa 0%, transparent 45%);
+}
+.webgl-fallback-shell { position: absolute; inset: 0; background: radial-gradient(circle at 60% 40%, #1a2210, #050505 70%); }
+.hero-media-grain {
+  position: absolute; inset: 0; pointer-events: none; opacity: .04; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.magnetic-wrap { display: inline-flex; transition: transform .35s var(--ease); will-change: transform; }
+.page-veil {
+  position: fixed; inset: 0; z-index: 200; pointer-events: none; background: #050505;
+  display: grid; place-items: center; visibility: hidden; opacity: 0;
+}
+.page-veil span {
+  font-family: var(--display); font-weight: 850; letter-spacing: -.08em; font-size: clamp(48px, 10vw, 120px);
+  background: linear-gradient(120deg, #f4f4f2, #d7ff8b); color: transparent; background-clip: text; -webkit-background-clip: text;
+}
 .signal-hero .hero-veil {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
-    linear-gradient(180deg, #050505cc 0%, #05050555 35%, #050505e8 78%, #050505 100%),
-    radial-gradient(ellipse at 70% 40%, #d7ff8b10, transparent 55%);
+    linear-gradient(180deg, #050505b8 0%, #05050522 28%, #050505d0 72%, #050505 100%),
+    radial-gradient(ellipse at 68% 42%, #d7ff8b14, transparent 52%);
 }
 .signal-hero .hero-topline {
   position: relative; z-index: 2; margin: 0 0 28px;
@@ -148,9 +172,8 @@ button, input, textarea, select { font-family: var(--body); }
   background-size: 200% 100%; background-clip: text; -webkit-background-clip: text;
   animation: gradient-flow 10s ease-in-out infinite alternate;
 }
-.signal-title > span { animation: title-enter 1.05s both var(--ease); }
-.signal-title > i { animation: title-enter 1.15s .08s both var(--ease); }
-.signal-title > .gradient-title { animation: title-enter 1.2s .14s both var(--ease), gradient-flow 10s ease-in-out infinite alternate; }
+.signal-title > span, .signal-title > i { will-change: transform, opacity, filter; }
+.signal-title > .gradient-title { animation: gradient-flow 10s ease-in-out infinite alternate; }
 .signal-description {
   font-size: 15px; color: #b3b3ad; line-height: 1.85; margin: 0 0 30px;
   border-left: 1px solid #d7ff8b66; padding-left: 18px; max-width: 420px;
@@ -279,6 +302,18 @@ button, input, textarea, select { font-family: var(--body); }
 .discipline-marquee { padding: 18px 0; background: transparent; color: #d8d8d0; border-color: #ffffff14; }
 .marquee-track > span { font-size: 15px; font-weight: 500; letter-spacing: .02em; gap: 36px; padding-right: 36px; }
 .marquee-track svg { width: 18px; height: 18px; color: var(--acid); }
+
+.immersion-strip {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 18px 28px;
+  padding: 18px var(--gutter); border-block: 1px solid var(--hairline);
+  font-family: monospace; font-size: 9px; letter-spacing: .22em; color: #8a8a86;
+  background: linear-gradient(90deg, transparent, #d7ff8b08, transparent);
+}
+.immersion-strip span { position: relative; }
+.immersion-strip span:not(:last-child):after {
+  content: ""; position: absolute; right: -16px; top: 50%; width: 4px; height: 4px;
+  border-radius: 50%; background: var(--acid); transform: translateY(-50%); opacity: .7;
+}
 
 /* Brand rail */
 .brand-rail {
